@@ -1,0 +1,110 @@
+ let results = [
+  {
+    thumb:
+      "https://i.ytimg.com/vi/QbNv1LMPdPI/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBRdn7HVw1n2apknDRaH0VhrRCIQg",  
+    title:
+      "Bassi & Kapil Sharma REVEAL Comedy Secrets, On-Set Moments & More with the Gang | TGIKS | Netflix",
+    channel: "Netflix India",
+    ch_logo:
+      "https://yt3.ggpht.com/7FgzPrXXEx3gtp6UEfSnZz6qnl0IlC4Z6w8OTNQhJoDRaKoLqlJLkymECW8pTCQPspvHH_bPDZQ=s68-c-k-c0x00ffffff-no-rj",
+    views: "9.9M",
+    release: "7 Months",
+    duration: "21:05",
+  },
+  {
+    thumb:
+      "https://i.ytimg.com/vi/4l2Sn9mlg04/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCXf0uFWQKRW6sjRsfmodK0KiSvdA",
+    title:
+      "Rs.65,000/- Ultimate Console Killer Gaming PC Build",
+    channel: "Venom's Tech",
+    ch_logo:
+      "https://yt3.ggpht.com/6q8XqZz8ZzTIcusVjDvVSd5sYVjXSlN31LOZaYg50ZYczixweYlEAS8RqgXqTL7e1QXK6sn-u0s=s68-c-k-c0x00ffffff-no-rj",
+    views: "1.3M",
+    release: "10 Months",
+    duration: "16:33",
+  },
+  {
+    thumb:
+      "https://i.ytimg.com/vi/tW40XQwYhcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLA7Twzx-0HLXG8k_cqmrd9ADjO74A",
+    title:
+      "BRONZE CS:GO Player Says He Deserves IMMORTAL... and then TOPFRAGS an IMMO Lobby",
+    channel: "eggwick",
+    ch_logo:
+      "https://yt3.ggpht.com/ytc/AIdro_lFjUiVb-UYhzj2z2c1_p1dMRkrUPj487whoCwVRjBgc-k=s68-c-k-c0x00ffffff-no-rj",
+    views: 906000,
+    release: 2,
+    duration: "29:40",
+  },
+  {
+    thumb:
+      "https://i.ytimg.com/vi/KUXQzVD1TdI/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBgBh6AlW2OnXza7J_lhzKaLNDL6A",
+    title:
+      "I Gave Every iPhone USB-C.",
+    channel: "Exploring the Simulation",
+    ch_logo:
+      "https://yt3.ggpht.com/fsNcPlzb2yYqaNwMtLHNYrzv4T9yagsfBuEj4r3PfSq3BNkTeLlFxAhpQpVMohjYn82a5CujpQ=s68-c-k-c0x00ffffff-no-rj",
+    views: "322K",
+    release: "2 days",
+    duration: "29:40",
+  },
+  {
+    thumb:
+      "https://i.ytimg.com/vi/1n1Xw3Sgjzs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAFxk4O_UpWyt2unRljVVQDNzBnZw",
+    title:
+      "The FASTEST Way To 10X Your DSA – IGNORE & You’ll FAIL !",
+    channel: "Syntax Bro",
+    ch_logo:
+      "https://yt3.ggpht.com/P4dTz8Rygo44mbcE6Sh9JWW7QxUgxDv1Kk0Tgvzdu-hYkMnkiKUVUSNN7hF6JPRCuACc8uHaaw=s68-c-k-c0x00ffffff-no-rj",
+    views: "191K",
+    release: "3 months",
+    duration: "29:40",
+  },
+  {
+    thumb:
+      "https://i.ytimg.com/vi/qTDjaS85DXc/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAlf8tBEewLIwyNe-7rKDMzJeNqhg",
+    title:
+      "How to ACTUALLY Unlock Pullups",
+    channel: "Kevin Zhang",
+    ch_logo:
+      "https://yt3.ggpht.com/NGIEIcEm4t4ktIT3xARUOhe6TDv-Rzlr40t8R5zointIqTlsWf44_T59hg8Kqzq8KG9ZsPTg0Q=s68-c-k-c0x00ffffff-no-rj",
+    views: "298k",
+    release: "5 months",
+    duration: "29:40",
+  },
+  {
+    thumb:
+      "https://i.ytimg.com/vi/Q9OW4iaQl-k/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCLiJAaeWoteOi8FkuLJYV9hYR2oQ",
+    title:
+      "Coding | Stand-Up Comedy by Mohd Suhel",
+    channel: "Mohd Suhel",
+    ch_logo:
+      "https://yt3.ggpht.com/ytc/AIdro_nv_ejInNioWmSwOHSxmva7BPGBLJGdo0-OEp-VHUaLPCc=s68-c-k-c0x00ffffff-no-rj",
+    views: "2.5M",
+    release: "7 months",
+    duration: "29:40",
+  },
+  {
+    thumb:
+      "https://i.ytimg.com/vi/Us2Z-WC9rao/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCeDsYZU0tEnO_14ytA-taxboh8ZQ",
+    title:
+      "Why Don't We Shoot Nuclear Waste Into Space?",
+    channel: "Kurzgesagt – In a Nutshell",
+    ch_logo:
+      "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s68-c-k-c0x00ffffff-no-rj",
+    views: "13M",
+    release: "2 Years",
+    duration: "29:40",
+  },
+  {
+    thumb:
+      "https://i.ytimg.com/vi/7bHOQLlSTdo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCfrgp87fBkqzNVJXYatY6BsBh98A",
+    title:
+      "Drinking The World's Highest Pressure Soda",
+    channel: "The Action Lab",
+    ch_logo:
+      "https://yt3.ggpht.com/ytc/AIdro_kTOs0UyOMP5bctTLw4SyZMgNkQGsYNVNbLTNf4VHLCq9c=s68-c-k-c0x00ffffff-no-rj",
+    views: "1.5M",
+    release: "6 months",
+    duration: "29:40",
+  },
+];

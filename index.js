@@ -1,12 +1,26 @@
-// const mongoose = require('mongoose');
-// const express = require('express')
-// let ejs = require('ejs');
-// const app = express()
-// const port = 3000
+const express = require('express')
+const mongoose = require('mongoose');
+const app = express()
+const port = 3000
+const path = require('path')
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use('/svg', express.static('svg'));
 
-// app.set('view engine', 'ejs');
-// app.use(express.static('src'));
+let result;
+async function fetchData() {
+  await mongoose.connect('mongodb://localhost:27017/yt-clone');
+  result = await MyModel.find({});
+  await mongoose.disconnect(); 
+}
 
+app.get('/', (req, res) => {
+  res.render('index')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 
 let results = [
   {
@@ -118,36 +132,30 @@ let results = [
     duration: "29:40",
   },
 ];
-// mongoose.connect('mongodb://localhost:27017/yt-videoDB', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// }).then(() => {
-//   console.log("MongoDB Connected");
-// }).catch(err => console.log(err));
 
-// app.get('/', (req, res) => {
-//   res.render('index', {foo: 'FOO'});
-// })
+// let result;
+// async function fetchData() {
+//   await mongoose.connect('mongodb://localhost:27017/yt-clone');
+//   result = await MyModel.find({});
+//   await mongoose.disconnect(); 
+// }
 
-// app.listen(4000, () => console.log('Example app listening on port 4000!'));
+// let container = document.querySelector(".r-content");
 
-
-let container = document.querySelector(".r-content");
-
-results.map((video) => {
-  let card = document.createElement("div");
-  card.className = "vid-item";
-  card.innerHTML = `
-  <div class="item w-[390px] cursor-pointer">
-    <img class="w-full h-[210px] object-cover rounded-xl" src="${video.thumb}" alt="">
-    <div class="flex gap-3 mt-3">
-      <img class="w-9 h-9 rounded-full" src="${video.ch_logo}" alt="">
-      <div>
-        <p class="text-sm font-semibold leading-snug mb-1">${video.title}</p>
-        <p class="text-xs text-gray-400 mb-0.5">${video.channel}</p>
-        <p class="text-xs text-gray-400">${video.views} views • ${video.release} ago</p>
-      </div>
-    </div>
-  </div>`;
-  container.appendChild(card);
-});
+// results.map((video) => {
+//   let card = document.createElement("div");
+//   card.className = "vid-item";
+//   card.innerHTML = `
+//   <div class="item w-[390px] cursor-pointer">
+//     <img class="w-full h-[210px] object-cover rounded-xl" src="${video.thumb}" alt="">
+//     <div class="flex gap-3 mt-3">
+//       <img class="w-9 h-9 rounded-full" src="${video.ch_logo}" alt="">
+//       <div>
+//         <p class="text-sm font-semibold leading-snug mb-1">${video.title}</p>
+//         <p class="text-xs text-gray-400 mb-0.5">${video.channel}</p>
+//         <p class="text-xs text-gray-400">${video.views} views • ${video.release} ago</p>
+//       </div>
+//     </div>
+//   </div>`;
+//   container.appendChild(card);
+// });
