@@ -1,137 +1,30 @@
-const express = require('express')
-const mongoose = require('mongoose');
-const app = express()
-const port = 3000
-const path = require('path')
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
-app.use('/svg', express.static('svg'));
+import express from "express";
+import mongoose from "mongoose";
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import Video from "./models/video.js"; // Use .js at end for ES Modules
 
-let result;
-async function fetchData() {
-  await mongoose.connect('mongodb://localhost:27017/yt-clone');
-  result = await MyModel.find({});
-  await mongoose.disconnect(); 
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.render('index')
-})
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/svg', express.static(path.join(__dirname, 'svg')));
+
+await mongoose.connect('mongodb://localhost:27017/yt-clone');
+
+app.get('/', async (req, res) => {
+  const results = await Video.find({});
+  res.render('index', { results }); // pass to index.ejs
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`App listening on port ${port}`);
+});
 
-let results = [
-  {
-    thumb:
-      "https://i.ytimg.com/vi/QbNv1LMPdPI/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBRdn7HVw1n2apknDRaH0VhrRCIQg",  
-    title:
-      "Bassi & Kapil Sharma REVEAL Comedy Secrets, On-Set Moments & More with the Gang | TGIKS | Netflix",
-    channel: "Netflix India",
-    ch_logo:
-      "https://yt3.ggpht.com/7FgzPrXXEx3gtp6UEfSnZz6qnl0IlC4Z6w8OTNQhJoDRaKoLqlJLkymECW8pTCQPspvHH_bPDZQ=s68-c-k-c0x00ffffff-no-rj",
-    views: "9.9M",
-    release: "7 Months",
-    duration: "21:05",
-  },
-  {
-    thumb:
-      "https://i.ytimg.com/vi/tW40XQwYhcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLA7Twzx-0HLXG8k_cqmrd9ADjO74A",
-    title:
-      "BRONZE CS:GO Player Says He Deserves IMMORTAL... and then TOPFRAGS an IMMO Lobby",
-    channel: "eggwick",
-    ch_logo:
-      "https://yt3.ggpht.com/ytc/AIdro_lFjUiVb-UYhzj2z2c1_p1dMRkrUPj487whoCwVRjBgc-k=s68-c-k-c0x00ffffff-no-rj",
-    views: 906000,
-    release: 2,
-    duration: "29:40",
-  },
-  {
-    thumb:
-      "https://i.ytimg.com/vi/tW40XQwYhcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLA7Twzx-0HLXG8k_cqmrd9ADjO74A",
-    title:
-      "BRONZE CS:GO Player Says He Deserves IMMORTAL... and then TOPFRAGS an IMMO Lobby",
-    channel: "eggwick",
-    ch_logo:
-      "https://yt3.ggpht.com/ytc/AIdro_lFjUiVb-UYhzj2z2c1_p1dMRkrUPj487whoCwVRjBgc-k=s68-c-k-c0x00ffffff-no-rj",
-    views: 906000,
-    release: 2,
-    duration: "29:40",
-  },
-  {
-    thumb:
-      "https://i.ytimg.com/vi/tW40XQwYhcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLA7Twzx-0HLXG8k_cqmrd9ADjO74A",
-    title:
-      "BRONZE CS:GO Player Says He Deserves IMMORTAL... and then TOPFRAGS an IMMO Lobby",
-    channel: "eggwick",
-    ch_logo:
-      "https://yt3.ggpht.com/ytc/AIdro_lFjUiVb-UYhzj2z2c1_p1dMRkrUPj487whoCwVRjBgc-k=s68-c-k-c0x00ffffff-no-rj",
-    views: 906000,
-    release: 2,
-    duration: "29:40",
-  },
-  {
-    thumb:
-      "https://i.ytimg.com/vi/tW40XQwYhcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLA7Twzx-0HLXG8k_cqmrd9ADjO74A",
-    title:
-      "BRONZE CS:GO Player Says He Deserves IMMORTAL... and then TOPFRAGS an IMMO Lobby",
-    channel: "eggwick",
-    ch_logo:
-      "https://yt3.ggpht.com/ytc/AIdro_lFjUiVb-UYhzj2z2c1_p1dMRkrUPj487whoCwVRjBgc-k=s68-c-k-c0x00ffffff-no-rj",
-    views: 906000,
-    release: 2,
-    duration: "29:40",
-  },
-  {
-    thumb:
-      "https://i.ytimg.com/vi/tW40XQwYhcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLA7Twzx-0HLXG8k_cqmrd9ADjO74A",
-    title:
-      "BRONZE CS:GO Player Says He Deserves IMMORTAL... and then TOPFRAGS an IMMO Lobby",
-    channel: "eggwick",
-    ch_logo:
-      "https://yt3.ggpht.com/ytc/AIdro_lFjUiVb-UYhzj2z2c1_p1dMRkrUPj487whoCwVRjBgc-k=s68-c-k-c0x00ffffff-no-rj",
-    views: 906000,
-    release: 2,
-    duration: "29:40",
-  },
-  {
-    thumb:
-      "https://i.ytimg.com/vi/tW40XQwYhcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLA7Twzx-0HLXG8k_cqmrd9ADjO74A",
-    title:
-      "BRONZE CS:GO Player Says He Deserves IMMORTAL... and then TOPFRAGS an IMMO Lobby",
-    channel: "eggwick",
-    ch_logo:
-      "https://yt3.ggpht.com/ytc/AIdro_lFjUiVb-UYhzj2z2c1_p1dMRkrUPj487whoCwVRjBgc-k=s68-c-k-c0x00ffffff-no-rj",
-    views: 906000,
-    release: 2,
-    duration: "29:40",
-  },
-  {
-    thumb:
-      "https://i.ytimg.com/vi/tW40XQwYhcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLA7Twzx-0HLXG8k_cqmrd9ADjO74A",
-    title:
-      "BRONZE CS:GO Player Says He Deserves IMMORTAL... and then TOPFRAGS an IMMO Lobby",
-    channel: "eggwick",
-    ch_logo:
-      "https://yt3.ggpht.com/ytc/AIdro_lFjUiVb-UYhzj2z2c1_p1dMRkrUPj487whoCwVRjBgc-k=s68-c-k-c0x00ffffff-no-rj",
-    views: 906000,
-    release: 2,
-    duration: "29:40",
-  },
-  {
-    thumb:
-      "https://i.ytimg.com/vi/tW40XQwYhcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLA7Twzx-0HLXG8k_cqmrd9ADjO74A",
-    title:
-      "BRONZE CS:GO Player Says He Deserves IMMORTAL... and then TOPFRAGS an IMMO Lobby",
-    channel: "eggwick",
-    ch_logo:
-      "https://yt3.ggpht.com/ytc/AIdro_lFjUiVb-UYhzj2z2c1_p1dMRkrUPj487whoCwVRjBgc-k=s68-c-k-c0x00ffffff-no-rj",
-    views: 906000,
-    release: 2,
-    duration: "29:40",
-  },
-];
 
 // let result;
 // async function fetchData() {
