@@ -14,7 +14,7 @@
 
     <div class="container flex gap-6 w-full mt-20 px-20">
       <div class="flex-1 max-w-[900px]">
-        <video src="/svg/video/vid1.mp4" autoplay controls class="rounded-2xl w-full"></video>
+        <video src="<%= video.vid %>" autoplay controls class="rounded-2xl w-full"></video>
         <p class="title mt-2 font-bold text-xl"><%= video.title %></p>
 
         <div class="flex items-center justify-between w-full mt-3">
@@ -91,6 +91,7 @@
         <% }); %>
       </div>
     </div>
+    <h2><%= video.vid %></h2>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
             const videoCards = document.querySelectorAll(".item");

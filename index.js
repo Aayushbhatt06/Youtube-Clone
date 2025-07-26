@@ -25,7 +25,7 @@ app.get('/video/:slug', async (req, res) => {
   try {
     const slug = req.params.slug;
     const video = await Video.findById(slug);
-
+    console.log(video);
     // Fetch other videos to show on right sidebar
     const results = await Video.find({ _id: { $ne: slug } }).limit(10);
 
