@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const videoSchema = new mongoose.Schema({
+  url : String,
   thumb: String,
   title: String,
   channel: String,
@@ -8,6 +9,8 @@ const videoSchema = new mongoose.Schema({
   views: String,
   release: String,
   duration: String,
+  description: String,
+  vid: String
 });
 
 const Video = mongoose.model('Video', videoSchema);

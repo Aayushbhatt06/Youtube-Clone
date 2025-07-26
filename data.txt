@@ -108,3 +108,4 @@
     duration: "29:40",
   },
 ];
+<%- include('components/navbar') %>
