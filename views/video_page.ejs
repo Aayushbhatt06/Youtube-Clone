@@ -91,7 +91,6 @@
         <% }); %>
       </div>
     </div>
-    <h2><%= video.vid %></h2>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
             const videoCards = document.querySelectorAll(".item");
@@ -102,6 +101,9 @@
               });
             });
           });
+      document.querySelector(".logo").addEventListener("click",()=>{
+        window.location.href = "/";
+      })
     </script>
   </body>
 </html>

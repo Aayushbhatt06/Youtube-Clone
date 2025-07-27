@@ -15,49 +15,6 @@
   </head>
   <body class="bg-dark bg-[#0f0f0f] text-white font-sans">
     <%- include('components/navbar') %>
-    <!-- <div
-      class="navbar flex justify-between items-center px-4 py-2 fixed top-0 bg-[#0f0f0f] z-10 w-full"
-    >
-      <div class="logo-ham flex items-center gap-6">
-        <i
-          class="fa-solid fa-bars fa-lg hamburger text-xl p-4 rounded-full hover:bg-[#272727]"
-        ></i>
-        <img class="logo invert w-[6vw] h-auto" src="svg/logo.svg" alt="logo" />
-      </div>
-
-      <div
-        class="search-bar flex w-2/5 border border-[#333] rounded-full overflow-hidden bg-[#0f0f0f]"
-      >
-        <input
-          class="flex-1 px-4 py-2 bg-transparent text-white placeholder-gray-400 text-base outline-none"
-          type="text"
-          placeholder="Search"
-        />
-        <button
-          class="bg-[#1c1c1c] px-5 text-white flex cursor-pointer items-center justify-center"
-        >
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
-
-      <div class="account flex items-center gap-8 mr-8">
-        <div
-          class="pl-create flex items-center gap-2 px-4 py-1 bg-[#1c1c1c] rounded-full hover:bg-[#272727]"
-        >
-          <p class="plus text-xl font-bold">+</p>
-          <button class="create text-white font-bold capitalize">create</button>
-        </div>
-        <i
-          class="fa-solid fa-bell text-xl p-2 rounded-full hover:bg-[#272727]"
-        ></i>
-        <a href="/"
-          ><img
-            src="svg/image.png"
-            class="w-8 h-8 rounded-full object-cover"
-            alt="profile"
-        /></a>
-      </div>
-    </div> -->
 
     <!-- Content -->
     <div class="content flex h-[92vh]">
@@ -266,41 +223,9 @@
               });
             });
           });
+          document.querySelector(".logo").addEventListener("click",()=>{
+        window.location.href = "/";
+      })
     </script>
   </body>
 </html>
-
-
-
-<!-- <script>
-
-      let container = document.querySelector(".r-content");
-
-      results.map((video) => {
-        let card = document.createElement("div");
-        card.className = "vid-item";
-        card.innerHTML = `
-          <div class="item w-[390px] cursor-pointer">
-            <img class="w-full h-[210px] object-cover rounded-xl" src="${video.thumb}" alt="">
-              <div class="flex gap-3 mt-3">
-                  <img class="w-9 h-9 rounded-full" src="${video.ch_logo}" alt="">
-                  <div>
-                  <p class="text-sm font-semibold leading-snug mb-1">${video.title}</p>
-                  <p class="text-xs text-gray-400 mb-0.5">${video.channel}</p>
-                  <p class="text-xs text-gray-400">${video.views} views • ${video.release} ago</p>
-              </div>
-            </div>
-          </div>`;
-        container.appendChild(card);
-
-          document.addEventListener("DOMContentLoaded", () => {
-            const videoCards = document.querySelectorAll(".item");
-            videoCards.forEach(item => {
-              item.addEventListener("click", () => {
-                const id = item.getAttribute("data-id");
-                window.location.href = `/video/${id}`;
-              });
-            });
-          });
-      });
-    </script> -->
